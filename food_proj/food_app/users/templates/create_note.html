@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='card_cover_flowers'>
+        <div class='card_flowers'>
+            {% csrf_token %}
+            <div class="row">
+              <div class="column">
+                  <form action='/user/dashboard/'>
+                      <input class='btn' id='signup_page' type='submit' value='home page'/>
+                  </form>
+              </div>
+              <div class="column">
+                  <form action='/user/foodpicker/'>
+                      <input class='btn' id='add_note' type='submit' value='Find Food'/>
+                  </form>
+              </div>
+            </div>
+
+
+            <form name='restaurant_note' method='POST'>
+                {% csrf_token %}
+                <label for='restaurant'>Restaurant Name: </label>
+                <input type='restaurant' name='restaurant' placeholder='Restaurant' class='field' required>
+
+                <label for='personal_rating'>Rating: </label>
+                <input type='personal_rating' name='personal_rating' placeholder='Rating' class='field' required>
+
+                <label for='restaurant_note'>Note: </label>
+                <textarea type='restaurant_note' name='restaurant_note' placeholder="Note"></textarea>
+
+                <input id='token_gs' type='submit' value='Add Note' class='btn'>
+
+                <div class='center' id='add_note_response'>
+                </div>
+
+                <!-- <div class='center' id='token_gs'>gs
+                </div> -->
+            </form>
+        </div>
+    </div>
+{% endblock %}
