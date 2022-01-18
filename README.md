@@ -9,7 +9,8 @@ add notes, pick from personal collections and other functionalities. The dashboa
 services. 
 
 There is also functionality to issue API calls to the service in personal applications. To use tokens navigate to the correct
-webpage and request a token. Once token is recieved follow the directions on its usage. You can also find instructions below:
+webpage and request a token. Once token is recieved follow the directions on its usage. You can also find these instructions
+below:
 
 How to use token service:
 Issue requests to the following endpoint: 
@@ -34,18 +35,19 @@ You will have 90 minutes before the token you have obtained expires, but you can
 How to Run
 -----------
 
-In order to properly run this project you must first install Poetry, a tool used for dependency management and
-packaging in Python. A link to the installation documents can be found here:
->https://python-poetry.org/docs/
+In order to properly run this project you must first install Docker, a tool used for creating containers that are isolated from
+one another and bundle their own software, libraries, and configuration files; they can communicate with each other through
+well-defined channels. Find Docker documentation here:
+>https://docs.docker.com/
 
-Following installation run the command "poetry install", this will install all the project's dependencies.
+Following installation and opening of docker enter the root directory of the application in the terminal (./food-finder-main)
+and run the command:
+>"docker-compose up --build -d" 
 
-In order to run the application, you must execute the following command in the appropriate directory
-(food_proj/food_app):
->python manage.py runserver
-
- This will cause the program to run locally on port 8000. The webpage is located in the following url:
+ This will create a container with the image of the application as well as an image of the corresponding version of MongoDB.
+ The resulting webpage is located in the following url:
 >http://127.0.0.1:8000/home/
+
 ![Screen Shot 2022-01-13 at 10 53 11 PM](https://user-images.githubusercontent.com/44513190/149453204-5553e0f8-842d-44c9-b372-a555bbd60b97.png)
 
 Once user has logged in or signed up, they will be directed to the following url:
