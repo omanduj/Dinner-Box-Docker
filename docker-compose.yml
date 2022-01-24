@@ -4,8 +4,8 @@ services:
   mongodb_container:
     image: mongo:5.0.3
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${USERNAME:-username}}
+      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD:-password}}
     ports:
       - 27017:27017
     volumes:
@@ -16,11 +16,11 @@ services:
     ports:
       - 8000:8000
     environment:
-      USERNAME: ${USERNAME}
-      PASSWORD: ${PASSWORD}
-      token_key: ${token_key}
-      SECRET_KEY: ${SECRET_KEY}
-      APP_SECRET: ${APP_SECRET}
+      USERNAME: ${USERNAME:-username}}
+      PASSWORD: ${PASSWORD:-password}
+      token_key: ${token_key:-INSERT_YOUR_TOKEN_HERE}
+      SECRET_KEY: ${SECRET_KEY:-secret_key}
+      APP_SECRET: ${APP_SECRET:-app_secret}
     links: 
      - mongodb_container
 
