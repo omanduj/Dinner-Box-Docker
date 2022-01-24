@@ -40,7 +40,9 @@ one another and bundle their own software, libraries, and configuration files; t
 well-defined channels. Find Docker documentation here:
 >https://docs.docker.com/
 
-Following installation and opening of docker enter the root directory of the application in the terminal (./food-finder-main)
+Following installation and opening of docker enter the root directory of the application in the terminal (./food-finder-main) and insert the replace information
+such in the yaml file with desired values. Next navigate to Yelp to obtain a token to interact with their API. Once obtained navigate to
+food_proj/food_proj/food_app/get_food/views.py and insert token into the credentials function (or create .env file to define the variable token_key).
 and run the command:
 >"docker-compose up --build -d" 
 
