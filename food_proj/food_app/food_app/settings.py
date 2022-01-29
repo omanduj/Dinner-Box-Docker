@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,27 +80,27 @@ WSGI_APPLICATION = 'food_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'api',
-        'CLIENT': {
-            'USERNAME': os.getenv('USERNAME'),
-            'PASSWORD': os.getenv('PASSWORD'),
-            'host': 'mongodb_container',
-            'port': 27017,
-        }
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'djongo',
-#         'NAME': 'mongo',
-#         'HOST': 'mongo',
-#         'PORT': 27017,
+#         'NAME': 'api',
+#         'CLIENT': {
+#             'USERNAME': os.getenv('USERNAME'),
+#             'PASSWORD': os.getenv('PASSWORD'),
+#             'host': 'mongodb_container',
+#             'port': 27017,
+#         }
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'mongo',
+        'HOST': 'mongo',
+        'PORT': 27017,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

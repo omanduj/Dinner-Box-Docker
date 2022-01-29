@@ -5,6 +5,7 @@ from django.utils.functional import wraps
 from passlib.hash import pbkdf2_sha256
 from geopy.geocoders import Nominatim
 from get_food.views import display, random_picker
+from dotenv import load_dotenv
 import jwt
 import datetime
 import pymongo
@@ -12,11 +13,13 @@ import requests
 import geocoder
 import os
 
+load_dotenv()
 
 app = {}
 app["SECRET_KEY"] = os.getenv('APP_SECRET')
 
-client = pymongo.MongoClient("mongodb://{}:{}@mongodb_container:27017".format(os.getenv('USERNAME'), os.getenv('PASSWORD')))
+client = pymongo.MongoClient("mongodb://localhost:27017")
+# client = pymongo.MongoClient("mongodb://{}:{}@mongodb_container:27017".format(os.getenv('USERNAME'), os.getenv('PASSWORD')))
 db = client.user_tokens
 
 # curl http://127.0.0.1:8000/auth/ -H "Authorization:{Bearer:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjpudWxsLCJleHAiOjE2NDIxMDg5MzN9.7qmwUYE3Wn7CEwQubWPvbMLmtmZOQU_9JmJLDV7A3V4}" --data 'cost=$&rating=2'

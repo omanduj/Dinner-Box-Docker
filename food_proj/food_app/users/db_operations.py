@@ -1,8 +1,12 @@
 import pymongo
 import datetime
 import os
+from dotenv import load_dotenv
 
-client = pymongo.MongoClient("mongodb://{}:{}@mongodb_container:27017".format(os.getenv('USERNAME'), os.getenv('PASSWORD')))
+load_dotenv()
+
+client = pymongo.MongoClient("mongodb://localhost:27017")
+# client = pymongo.MongoClient("mongodb://{}:{}@mongodb_container:27017".format(os.getenv('USERNAME'), os.getenv('PASSWORD')))
 db = client.users
 
 # --------------------------- Users ---------------------#

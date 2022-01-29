@@ -6,11 +6,11 @@ from users.db_operations import (
     get_one_user,
     delete_note,
 )
-from flask_socketio import SocketIO, emit
+# from flask_socketio import SocketIO, emit
 from django.http import JsonResponse
 import collections
 
-socketio = SocketIO(app)
+# socketio = SocketIO(app)
 
 # Create your views here.
 def order_notes_name(
@@ -155,8 +155,8 @@ def delete_user_note(request):
         return JsonResponse({"Success": notes_found})
     return JsonResponse({"Error": "Not Founds"})
 
-def attendance_counter(request):
-        "vote_results",
-        {"results1": amount_of_votes, "item_name": item_name},
-        broadcast=True,
-    )
+# def attendance_counter(request):
+#         "vote_results",
+#         {"results1": amount_of_votes, "item_name": item_name},
+#         broadcast=True,
+#     )
